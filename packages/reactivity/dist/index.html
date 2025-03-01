@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script src="../../../node_modules/@vue/reactivity/dist/reactivity.global.js"></script> -->
+    <script src="./reactivity.global.js"></script>
+    <div id="app"></div>
+    <script>
+      // effect 代表的是副作用函数，如果此函数依赖的数据发生变化了，那么这个函数就会重新执行
+      // reactive 代表的是响应式对象，如果这个对象的属性发生变化了，那么这个变化会被追踪到
+      const { effect, reactive } = VueReactivity;
+      //   console.log("effect", effect);
+      console.log("reactive", reactive);
+      let obj = {
+        name: "zf",
+        age: 13,
+      };
+      const state1 = reactive(obj);
+      const state2 = reactive(state1);
+
+      effect(() => {
+        app.innerHTML = `
+            <h1>${state.name}</h1>
+            <h2>${state.age}</h2>
+        `;
+      });
+      //   setTimeout(() => {
+      //     state.name = "hahahahahah";
+      //     state.age = 14;
+      //   }, 2000);
+      console.log("state---", state1 === state2);
+    </script>
+  </body>
+</html>

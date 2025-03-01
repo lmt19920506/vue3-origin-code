@@ -26,7 +26,7 @@ const outfile = resolve(
 build({
   entryPoints: [resolve(__dirname, `../packages/${target}/src/index.ts`)],
   outfile,
-  bundle: true, // 把所有的包都搭载一起
+  bundle: true, // 把所有的包都打包到一起
   sourcemap: true,
   format: outputFormat, // 输出的格式
   globalName: pkg.buildOptions?.name, // 打包的全局的名字
